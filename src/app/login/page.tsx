@@ -7,6 +7,7 @@ import axios from "axios";
 
 
 
+
 export default function LoginPage() {
     const router = useRouter();
     const [user, setUser] = React.useState({
@@ -21,7 +22,8 @@ export default function LoginPage() {
         try {
             setLoading(true);
             const response = await axios.post("/api/users/login", user);
-            
+            console.log(response)
+
             router.push("/profile");
         } catch (error:any) {
             console.log("Login failed", error.message);
